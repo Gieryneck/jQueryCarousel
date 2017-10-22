@@ -1,0 +1,125 @@
+
+
+#carousel{
+
+	max-width: 600px;
+	max-height: 400px;
+	margin: 0 auto;
+	overflow: hidden;
+	position: relative;
+}
+
+ul{
+
+	padding: 0;
+	margin: 0;
+	width: 3600px;
+	list-style-type: none;
+	font-size: 0px; /* zapobiega white space'om na dzieciach ul */
+}
+
+
+li{
+
+	width: 600px;
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+}
+
+/* ARROWS */
+
+.fa{
+
+	position: absolute;
+	color: #fff;
+	top: 46.5%;
+	font-size: 30px;
+	cursor: pointer;
+	opacity: .4;
+
+	-webkit-transition: 0.4s;
+	-o-transition: 0.4s;
+	transition: 0.4s;
+}
+
+.fa:hover{
+
+	opacity: .7;
+}
+
+.fa:active{
+
+	opacity: 1;
+	-webkit-transition: 0.2s;
+	-o-transition: 0.2s;
+	transition: 0.2s;
+}
+
+.fa-arrow-left{
+
+	left: 20px;
+}
+
+.fa-arrow-right{
+
+	right: 20px;
+}
+
+
+
+
+/* CONTROLS */
+
+
+#carousel-controls-container{
+
+	position: absolute;
+	bottom: 5px;
+	width: 600px;
+	text-align: center;
+}
+
+.carousel-control{
+
+	
+	border: 2px solid #fff;
+	opacity: .4;
+	border-radius: 50%;
+	width: 12px;
+	height: 12px;
+	content:'';
+	display: inline-block;
+	margin:10px;
+	cursor: pointer;
+
+	-webkit-transition: .2s ease-in;
+	-o-transition: .2s ease-in;
+	transition: .2s ease-in;
+}
+
+
+.carousel-control:hover{
+
+	background-color: #fff;
+	opacity: .5;
+}
+
+
+
+.carousel-control:active{
+
+	background-color: #fff;
+	opacity: 1;
+	-webkit-transition: .15s;
+	-o-transition: .15s;
+	transition: .15s;
+}
+
+.hightlighted-carousel-control{
+
+	background-color: #fff;
+	opacity: .5;
+} 
+
+
