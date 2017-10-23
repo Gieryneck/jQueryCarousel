@@ -24,8 +24,8 @@
 			a bez klona robilby sie brzydki nieplynny przeskok przy resecie margin-left listy do 0 */
 			$('#carousel ul li').first().clone().appendTo('#carousel ul');
 
-			var $images =  $imgString.find('.carousel-img'); // te zmienna celowo definiujemy dopiero po zrobieniu klona elementu li
-			//console.log($images.get());
+			var $images = $imgString.find('.carousel-img'); // te zmienna celowo definiujemy dopiero po zrobieniu klona elementu li
+			console.log($images.get());
 
 		
 			/* Override szerokości css lub ustawienie szerokości dla elementu ul w HTML,
@@ -44,21 +44,27 @@
 
 			interval = setInterval(function() {
 
-				if (currentImg === $images.length) {
-
-					currentImg = 1;
-
-					console.log(currentImg);
-
-					$imgString.css('margin-left', '0');
-				}
-
 				currentImg++;
 
 				console.log(currentImg);
 
-				$imgString.stop(true, true).animate({'margin-left': '-=' + imgWidth}, slideshowSpeed);
+				$imgString.stop(true, true).animate({'margin-left': '-=' + imgWidth}, slideshowSpeed,
 
+
+					function(){
+
+						if (currentImg === $images.length) {
+
+							$imgString.css('margin-left', '0');
+
+							currentImg = 1;
+
+							console.log(currentImg);
+
+						}
+					}
+				);
+					
 			}, 3000);
 			
 		}
@@ -106,6 +112,8 @@
 
 				currentImg--;
 
+				console.log(currentImg);	
+
 				// stop(true, true) zapobiega sytuacji gdzie przy szybkim 
 				// klikaniu img  przestaja sie pokrywac z currentImg(animacje nie nadążają za zmianami currentImg)
 				$imgString.stop(true, true).animate({'margin-left': '+=' + imgWidth}, slideshowSpeed);
@@ -113,7 +121,7 @@
 
 			} else if (currentImg === 1) {
 
-				currentImg = 5;
+				currentImg = $images.length-1;
 
 				console.log(currentImg);	
 
@@ -140,7 +148,7 @@
 
 				$imgString.stop(true, true).animate({'margin-left': '-=' + imgWidth}, slideshowSpeed);
 
-			} else if (currentImg === 6) {
+			} else if (currentImg === $images.length) {
 
 				currentImg = 2;
 
@@ -163,7 +171,7 @@
 			var wantedControl = $(this).index(".carousel-control") + 1; 
 
 				
-			if (currentImg === 6) {
+			if (currentImg === $images.length) {
 
 				$imgString.css('margin-left', '0');
 
@@ -200,7 +208,7 @@
 
 		setInterval(function() {
 
-			if (currentImg === 6) {
+			if (currentImg === $images.length) {
 
 				$controls.removeClass('hightlighted-carousel-control');
 				$controls.eq(0).addClass('hightlighted-carousel-control');
